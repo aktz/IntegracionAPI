@@ -1,6 +1,8 @@
 from fastapi import FastAPI, Query
 from pydantic import BaseModel
 import Categorias
+import compras
+
 
 
 app = FastAPI()

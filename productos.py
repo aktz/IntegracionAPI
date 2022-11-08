@@ -6,10 +6,10 @@ class App:
 
 	def __init__(self):
 		self.conn = pymysql.connect(
-			host='sql814.main-hosting.eu',
-			user='u579929917_root',
-			password = "IntegracionApi1",
-			db='u579929917_integracionapi',
+			host='localhost',
+			user='root',
+			password = "",
+			db='integracionapi',
 			)
 		self.cursor = self.conn.cursor()
 
