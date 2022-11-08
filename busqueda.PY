@@ -1,4 +1,4 @@
-def get_by_filters(self, filters):
+def proveedores (self, filters):
 
         list_data = []
         list_header = []
