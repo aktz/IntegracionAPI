@@ -1,0 +1,413 @@
+import os
+import time
+def print_optioins():
+    print("menu products")
+    print("*" * 30)
+    print("select option:")
+    print("[C]reate product")
+    print("[L]ist products")
+    print("[M]odify product")
+    print("[R]emove product")
+    print("[S]earch product")
+    print("[E]xit")
+
+def run():
+    print_options()
+
+    command = input()
+    command = command.upper()
+
+    if comman == "C":
+        pass
+    elif command == "L":
+        pass
+    elif command == "M":
+        pass
+    elif command == "R":
+        pass
+    elif command == "S":
+        pass
+    elif command == "E":
+        os._exit(1)
+    else:
+        print("Invalid Command")
+        time.sleep(1)
+        run()
+
+    if _name_ == "_main_":
+        run()
+
+class Contact:
+    def_init_(self, name, type, price, unit)
+        self._name = name
+        self._type = type
+        self._price = price
+        self._unit = unit
+        
+    
+ @property
+def name(self):
+    return self._name
+
+ @name.setter
+def name(self, name):
+    self._name = name
+
+ @property
+def type(self):
+    return self._type
+
+ @type.setter
+def type(self, type):
+    self._type = type
+
+ @property
+def price(self):
+    return self._price
+
+ @price.setter
+def price(self, price):
+    self._price = price
+
+ @property
+def unit(self):
+    return self._unit
+
+ @unit.setter
+def unit(self, unit):
+    self._unit = unit
+    
+    
+import re
+import datetime
+
+regex_type = "^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+regex_price = "^[0-9]{9}$"
+
+class Validations:
+
+    def _init_(self):
+        pass
+    def validateName(self. name):
+        if len(name) < 3 or len(name) > 20:
+            raise ValuError(f" The name must have a minimum of 3 characters and maximum of 20 characters, current size: {len(name)} ")
+        return True
+
+    def validateType(self, type):
+        if not re.search(regex_type, type):
+            raise ValueError(f" Type format is invalid ")
+        return True
+
+    def validatePrice(self, price):
+        if not re.search(regex_price, price):
+            raise ValueError(f" price format is invalid, must have a minimum of 4 numbers and maximum of 20 numbers, without hyphens or dots ")
+        return True
+
+   def validateUnit(self, unit):
+        if len(unit) < 1 or len(type) > 999 :
+            raise ValueError(f" Unit must have a minimum of 1 numbers and maximum of 999 numbers, current size: {len(name)} ")
+        return True
+        
+
+ raise ValueError("Message custom with error")
+
+ 
+        
+import os
+import time
+
+from Classes.validations import Validations
+validator = validations()
+
+def run():
+    print_options()
+
+    command = input()
+    command = command.upper()
+
+    if command == "C":
+        create_product()
+    elif command == "L":
+        pass
+    elif command == "M":
+        pass
+    elif command == "R":
+        pass
+    elif command == "S":
+        pass
+    elif command == "E":
+        os._exit(1)
+    else:
+        print("Invalid command")
+        time.sleep(1)
+        run()
+
+def create_product():
+    print("CREATE PRODUCT")
+    print('*' * 20)
+    name = check_name()
+    type = check_type()
+    price = check_price()
+    unit = check_unit()
+
+def check_name():
+    print("Insert name")
+    name = input()
+    try:
+        validator.validateName(name)
+        return name
+    except ValueError as err:
+        print(err)
+        check_name()
+
+def check_type():
+    print("Insert type")
+    type = input()
+    try:
+        validator.validateType(type)
+        return type
+    except ValueError as err:
+        print(err)
+        check_type()
+
+def check_price():
+    print("Insert price")
+    price = input()
+    try:
+        validator.validateType(price)
+        return price
+    except ValueError as err:
+        print(err)
+        check_price()
+
+def check_unit():
+    print("Insert unit")
+    unit = input()
+    try:
+        validator.validateType(unit)
+        return unit
+    except ValueError as err:
+        print(err)
+        check_unit()
+        
+def check_product_data(message, data_name):
+    print(message)
+    input_data = input()
+    try:
+        getattr(validator, f"validate{data_name.capitalize()}")(input_data)
+        return input_data
+    except ValueError as err:
+        print (err)
+        check_product_data(message, data:name)
+        
+   
+    
+def create_product():
+    print("CREATE PRODUCT")
+    print('*' * 20)
+    name = check_product_data("Insert name:" , "name")
+    type = check_product_data("Insert type:" , "type")
+    price = check_product_data("Insert price (without hyphens or dots):" , "price")
+    unit = check_product_data("Insert unit:" , "unit")
+
+
+import csv
+
+
+class DbbyCSV:
+
+    def _init_(self, shema, filename):
+        self._filename = f"./{filename}.csv"
+        try:
+            # Check if the file already exits
+            f = open(self._filename)
+            f.close()
+        except IOError
+        # if the file does not exits we create the header
+        with open(self._filename, mode="w", encoding="utf-16") as csv_file:
+                data_writer = csv.writer(csv_file, delimiter=";", quotechar='"', quoting=csv.QUOTE_MINIMAL, lineterminator="\n")
+                data_writer.writerow(schema.keys())
+        
+    
+from .contact import Contact
+from. dbcsv import DBbyCSV
+
+SHEMA = {
+  "ID":{
+  "type". "autoincrement" ,
+   },
+   "NAME" : {
+   "type": "string",
+   "min_length" : 3 ,
+   "max_lenght" : 20
+   },
+   "TYPE" : {
+   "type": "string",
+   "min_length" : 3 ,
+   "max_lenght" : 20
+   },
+   "PRICE" : {
+   "min_length": 5,
+   "max_length": 50
+   },
+   "UNIT" : {
+    "type": "int"
+ }
+}
+
+class DBContacts(DBbyCSV):
+
+ def __init__(self):
+        super().__init__(SCHEMA, "products")
+        
+class Contact:
+
+    def __init__(self, id_product, name, type, price, unit ):
+        self._id_product = id_product
+        self._name = name
+        self._type = type
+        self._price = price
+        self._unit = unit
+
+    @property
+    def id_product(self):
+        return self._id_product
+
+    @id_product.setter
+    def id_product(self, id_product):
+        self._id_product = id_product
+
+
+def insert(self, data):
+
+        id_product = self.get_last_id() + 1
+        line = [id_product] + data
+
+        with open(self._filename, mode="a", encoding="utf-16") as csv_file:
+            data_writer = csv.writer(csv_file, delimiter=";", quotechar='"', quoting=csv.QUOTE_MINIMAL, lineterminator="\n")
+            data_writer.writerow(line)
+
+        return True
+
+
+    def get_last_id(self):
+        
+        list_ids = []
+        with open(self._filename, mode="r", encoding="utf-16") as csv_file:
+            csv_reader = csv.reader(csv_file, delimiter";")
+            is_header = True
+            for row in csv_reader:
+                if is_header:
+                    is_header = False
+                    continue
+
+                if row:
+                    list_ids.append(row[0])
+
+        if not list_ids:
+            return 0
+        
+        # we sort the list from largest to smallest and return the element with the large size
+        list_ids.sort(reverse = True) 
+        return int(list_ids[0])        
+
+def save_product(self, product):
+        data = [product.name, product.type, product.price, product.unit]
+        return self.insert(data)
+
+import os
+import time
+from classes.validations import Validations
+from classes.product import Product
+from classes.dbproducts import DBproducts
+validator = Validations()
+db = DBProducts()
+
+def create_product():
+
+    print("CREATE PRODUCT")
+    print("*" * 20)
+    name = check_product_data("Insert name :", "name")
+    type = check_product_data("Insert type :", "type")
+    price = check_contact_data("Insert price:", "price")
+    unit = check_contact_data("Insert unit (without hyphens or dots):", "unit")
+   
+    product = Product(None, name, type, price, unit)
+    if db.save_product(product):
+        print(" Product inserted successfully")
+    else:
+        print('Error saving product")
+
+
+ def list_products(self):
+        list_products = self.get_all()
+
+        if not list_products:
+            return None
+
+        object_products = []
+        # Convert the data to objects of type product 
+        for product in list_products:
+            c = Product(product['ID'], product["NAME"], product["TYPE"], product["PRICE"], product["UNIT"])
+            object_products.append(c)
+
+        return object_products
+
+    
+    def get_schema(self):
+        return SCHEMA              
+        
+import os
+import time
+from classes.validations import Validations
+from classes.product import Product
+from classes.dbproducts import DBProducts
+from prettytable import PrettyTable
+validator = Validations()
+db = DBProducts()
+
+After create funtion list_products.
+
+def list_products():
+    list_products = db.list_products()
+
+    if not list_products:
+        return print("There are no saved products yet")
+
+    table = PrettyTable(db.get_schema().keys())
+    for product in list_products:
+        table.add_row([
+            product.id_product,
+            product.name,
+            product.type,
+            product.price,
+            product.unit,
+        ])
+
+    print(table)
+    print("Pulse enter to exit")
+    command = input()
+
+def run():
+    print_options()
+
+    command = input()
+    command = command.upper()
+
+    if command == "C":
+        create_product()
+    elif command == "L":
+        list_products()
+    elif command == "M":
+        pass
+    elif command == "R":
+        pass
+    elif command == "S":
+        pass
+    elif command == "E":
+        os._exit(1)
+    else:
+        print("Invalid Command")
+
+    time.sleep(1)
+    run()    
