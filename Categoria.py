@@ -1,6 +1,5 @@
 from pydantic import BaseModel
 
-
 class Categoria(BaseModel):
   Id: int
   Codigo: str
