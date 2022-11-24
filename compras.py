@@ -4,7 +4,7 @@ import Conexion
 
 class Compras(BaseModel):
     Id: int
-    Fecha: float
+    Fecha: int
     Producto: int
     Cantidad: int
     Precio: int
@@ -35,7 +35,7 @@ class Compras(BaseModel):
     def inserta_compras(self,Fecha, Producto, Cantidad, Precio, ValorTotal):
         cur = self.cnn.cursor()
         sql='''INSERT INTO compras (Fecha, Producto, Cantidad, Precio, ValorTotal) 
-        VALUES('{}', '{}', '{}', '{}', '{}', '{}', '{}')'''.format(Fecha, Producto, Cantidad, Precio, ValorTotal)
+        VALUES('{}', '{}', '{}', '{}', '{}')'''.format(Fecha, Producto, Cantidad, Precio, ValorTotal)
         cur.execute(sql)
         n=cur.rowcount
         self.cnn.commit()    
