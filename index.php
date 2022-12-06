@@ -15,5 +15,5 @@ return $conn;
 }
 }
 }
-echo "Conexión lograda para LA API REST DE INTEGRACION";
+echo "Conexión lograda para LA API REST DE INTEGRACION CONTINUA";
 ?>
